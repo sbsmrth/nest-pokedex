@@ -4,6 +4,7 @@ import { join } from 'path';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CommonModule } from './common/common.module';
+import { SeedModule } from './seed/seed.module';
 
 const { DB_HOST, DB_PORT } = process.env;
 
@@ -16,6 +17,7 @@ console.log(`Connecting to MongoDB at ${DB_HOST}:${DB_PORT}`);
     MongooseModule.forRoot(`mongodb://localhost:27017/pokedex`),
     PokemonModule,
     CommonModule,
+    SeedModule,
   ],
 })
 export class AppModule {}
