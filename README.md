@@ -44,6 +44,12 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## Run seed
+
+```bash
+$ GET /api/v2/seed
+```
+
 ## Run tests
 
 ```bash
