@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mongo:8
+    container_name: pokedex-db
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./mongo:/data/db
+  pokedexapp:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pokedex-docker
+    container_name: pokedexapp
+    restart: always
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      MONGO_URI: ${MONGO_URI}
+      PORT: ${PORT}
+      DEFAULT_DATA_LIMIT: ${DEFAULT_DATA_LIMIT}
+
+      
+      
