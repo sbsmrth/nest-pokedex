@@ -31,6 +31,10 @@
 $ yarn install
 ```
 
+## Environment variables
+
+Rename the file ```.env.example``` to ```.env``` then set the variables defined there.
+
 ## Compile and run the project
 
 ```bash
