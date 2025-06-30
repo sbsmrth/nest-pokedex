@@ -21,8 +21,7 @@ export class PokemonService {
 
     private readonly configService: ConfigService,
   ) {
-    const defaultDataLimit =
-      this.configService.get<number>('defaultDataLimit')!;
+    const defaultDataLimit = configService.get<number>('defaultDataLimit')!;
     this.defaultDataLimit = defaultDataLimit;
   }
 
